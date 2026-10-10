@@ -34,7 +34,7 @@ export function Hero() {
   const live = projects.filter((p) => p.status === "Live").length
   const meta = [
     { label: "Role", value: site.role },
-    { label: "Focus", value: "Full-stack · Systems" },
+    { label: "Focus", value: "Full-stack · AI backends" },
     { label: "Shipped", value: `${projects.length} projects, ${live} live` },
     site.location
       ? { label: "Based in", value: site.location, time: site.timezone }
