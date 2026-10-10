@@ -5,6 +5,7 @@ import { experience } from "@/content/experience"
 import { projects } from "@/content/projects"
 import { site } from "@/content/site"
 import { socialLinks } from "@/lib/links"
+import { cn } from "@/lib/utils"
 import { EmailButton } from "./email-button"
 import { Reveal } from "./reveal"
 import { SocialIcon } from "./social-icon"
@@ -58,7 +59,14 @@ export function Snapshot() {
           </div>
         </div>
 
-        <dl className="grid divide-border md:grid-cols-3 md:divide-x [&>div]:border-b [&>div]:border-border">
+        <dl
+          className={cn(
+            "grid border-border [&>div]:border-b [&>div]:border-border",
+            site.domains.length > 0
+              ? "md:grid-cols-2 lg:grid-cols-4 md:max-lg:[&>div:nth-child(odd)]:border-r lg:[&>div:not(:last-child)]:border-r"
+              : "md:grid-cols-3 md:[&>div:not(:last-child)]:border-r"
+          )}
+        >
           <Cell label="Looking for">
             <ul className="space-y-1">
               {site.seeking.map((r) => (
@@ -71,6 +79,15 @@ export function Snapshot() {
             <p className="mt-1 text-muted-foreground">{site.remote}</p>
             {site.location && <p className="mt-1 text-muted-foreground">{site.location}</p>}
           </Cell>
+          {site.domains.length > 0 && (
+            <Cell label="Domain">
+              <ul className="space-y-1">
+                {site.domains.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+            </Cell>
+          )}
           <Cell label="Core stack">
             <div className="flex flex-wrap gap-1.5">
               {site.coreStack.map((s) => (

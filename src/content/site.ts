@@ -28,6 +28,9 @@ export const site = {
   /** The roles you are targeting. Shown in the recruiter snapshot. */
   seeking: ["Full-stack Engineer", "Frontend Engineer", "Backend Engineer"],
 
+  /** Industries and contract types you've worked in. Shown in the recruiter snapshot. Empty hides it. */
+  domains: ["SBIR contracts", "Federal R&D", "AI / RAG systems"],
+
   /** The handful of technologies you most want a recruiter to see. */
   coreStack: ["TypeScript", "React", "Next.js", "Python", "PostgreSQL", "Neo4j"],
 
@@ -52,6 +55,7 @@ export const site = {
 
   about: [
     "I build software end to end: data models, APIs, auth, and interfaces people enjoy using.",
+    "At KBSI I build AI-backed applications for SBIR contracts, where federally funded research has to become software that actually runs.",
     "Most of my work lives in TypeScript and Next.js. On the side I go deep on Rust, operating systems and interpreters, because understanding the layer below makes the layer above better.",
   ],
 

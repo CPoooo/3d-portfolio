@@ -9,8 +9,9 @@ export const experience: Experience[] = [
     start: "Feb 2025",
     end: "Present",
     summary:
-      "Building full-stack web applications and Python AI backends with retrieval-augmented generation.",
+      "Building full-stack web applications and Python AI backends with retrieval-augmented generation, largely on SBIR-funded R&D contracts.",
     points: [
+      "Deliver software on Small Business Innovation Research (SBIR) contracts, taking federal R&D work from concept to working application",
       "Frontends in Next.js/React and Vue, backed by TypeScript and Express services",
       "RAG backends in Python with Flask and FastAPI, retrieving from Neo4j and PostgreSQL",
       "MCP servers that connect models to internal tools and data",
