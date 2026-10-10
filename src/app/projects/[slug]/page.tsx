@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { Suspense } from "react"
 import { ArrowLeft, ArrowRight, ArrowUpRight, Play } from "lucide-react"
 
 import { Footer } from "@/components/site/footer"
@@ -27,7 +28,27 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
   }
 }
 
-export default async function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
+export default function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
+  // Every slug is prerendered by generateStaticParams, so the fallback only
+  // shows for a moment on an unknown URL before the 404.
+  return (
+    <Suspense fallback={<ProjectFallback />}>
+      <Project params={params} />
+    </Suspense>
+  )
+}
+
+function ProjectFallback() {
+  return (
+    <div aria-busy className="mx-auto max-w-6xl px-4 pt-32 md:px-8 md:pt-40">
+      <div className="mt-[4.5rem] h-3 w-40 animate-pulse rounded bg-foreground/10" />
+      <div className="mt-8 h-20 w-2/3 animate-pulse rounded-xl bg-foreground/10" />
+      <div className="mt-8 h-6 w-1/2 animate-pulse rounded bg-foreground/10" />
+    </div>
+  )
+}
+
+async function Project({ params }: { params: PageProps<"/projects/[slug]">["params"] }) {
   const { slug } = await params
   const project = getProject(slug)
   if (!project) notFound()

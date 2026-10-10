@@ -12,6 +12,8 @@ I got into software convinced I'd be a great game developer, like every young ne
 
 Side quest: using AI to work out optimal pitching mechanics and training. Maybe one day we see 110+ mph off the mound.
 
+Also a competitive programmer wannabe. Hand me a hard problem and a timer.
+
 Not a recruiter? If you're building something open source or have something interesting to show me, reach out.
 
 ## Résumé

@@ -63,6 +63,7 @@ export const site = {
   offTheRecord: [
     "I got into software convinced I'd be a great game developer, like every young nerd does. These days I specialize in full-stack, with a quiet yearning to go embedded someday. Rust hypeboy.",
     "Side quest: using AI to work out optimal pitching mechanics and training. Who knows, maybe one day we see 110+ mph off the mound.",
+    "Also a competitive programmer wannabe. Hand me a hard problem and a timer.",
   ],
   forDevs: [
     "Here for the code, not the hiring? Even better. Jobs are boring.",
