@@ -80,29 +80,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "wedding-invitations",
-    title: "Wedding Invitations",
-    tagline: "An animated invitation site with music, gallery and RSVP.",
-    summary:
-      "A custom wedding site built for real guests: an animated envelope opening with music, a Pinterest-style gallery, and an RSVP flow saved to Postgres.",
-    year: "2026",
-    status: "Live",
-    category: "Full-stack",
-    role: "Design, engineering",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Neon Postgres"],
-    featured: true,
-    accent: "#d9a6c4",
-    links: {
-      live: "https://wedding-invitations-zeta-flame.vercel.app",
-      repo: "https://github.com/CPoooo/wedding_invitations",
-    },
-    highlights: [
-      "Animated opening sequence with audio",
-      "Masonry gallery for photos and video",
-      "RSVP form persisted to Neon Postgres",
-    ],
-  },
-  {
     slug: "tanks",
     title: "Tanks",
     tagline: "A browser tank battler with local multiplayer and an AI opponent.",
