@@ -26,17 +26,17 @@ export function StackSection() {
               delay={i * 0.05}
               className={cn(
                 "bg-card/90 p-6 backdrop-blur md:p-8",
-                i === 0 && "lg:row-span-2",
+                i === 0 && (skills.length + 1) % 3 === 0 && "lg:row-span-2",
                 skills.length % 2 === 1 && i === skills.length - 1 && "md:max-lg:col-span-2"
               )}
             >
               <h3 className="mb-6 font-mono text-[11px] tracking-[0.18em] text-faint uppercase">{group.label}</h3>
-              <ul className={cn("grid gap-x-6 gap-y-3", i === 0 && "lg:gap-y-5")}>
+              <ul className="grid gap-x-6 gap-y-3">
                 {group.skills.map((s) => {
                   const n = usage.get(s)
                   return (
                     <li key={s} className="flex items-baseline justify-between gap-3 border-b border-border/60 pb-3 last:border-0">
-                      <span className={cn("text-[15px]", i === 0 && "lg:text-xl lg:font-medium lg:tracking-tight")}>{s}</span>
+                      <span className="text-[15px]">{s}</span>
                       {n ? <span className="font-mono text-[11px] text-primary tabular-nums">{n}</span> : null}
                     </li>
                   )

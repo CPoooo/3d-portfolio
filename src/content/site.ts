@@ -12,7 +12,7 @@ export const site = {
   headlineAccent: "full-stack applications.",
   /** Short supporting line under the headline. */
   subline:
-    "TypeScript, Next.js and Rust. Schema to interface, shipped to production.",
+    "TypeScript, Next.js and Python AI backends. Schema to interface, shipped to production.",
 
   /** Leave empty to hide. */
   location: "",
@@ -29,7 +29,7 @@ export const site = {
   seeking: ["Full-stack Engineer", "Frontend Engineer", "Backend Engineer"],
 
   /** The handful of technologies you most want a recruiter to see. */
-  coreStack: ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "Rust"],
+  coreStack: ["TypeScript", "React", "Next.js", "Python", "PostgreSQL", "Neo4j"],
 
   /** Public contact email. Leave empty to hide the email buttons. */
   email: "",
