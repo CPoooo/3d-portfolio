@@ -1,26 +1,224 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
+  --font-heading: var(--font-geist-sans);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Signature palette */
+  --color-ink: var(--ink);
+  --color-bone: var(--bone);
+  --color-ember: var(--ember);
+  --color-glacier: var(--glacier);
+  --color-iris: var(--iris);
+  --color-faint: var(--faint);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/*
+ * "Ink & Ember"
+ * A blue-black ink ground, warm bone text, and a single ember accent.
+ * Glacier and iris exist mainly for the 3D scene and small details.
+ * All text pairs meet WCAG AA; body text is ~15:1, muted text ~7.5:1.
+ */
+:root {
+  color-scheme: dark;
+
+  --ink: oklch(0.155 0.014 264);
+  --bone: oklch(0.955 0.012 85);
+  --ember: oklch(0.79 0.145 58);
+  --glacier: oklch(0.83 0.085 215);
+  --iris: oklch(0.7 0.14 295);
+  --faint: oklch(0.63 0.016 264);
+
+  --background: var(--ink);
+  --foreground: var(--bone);
+  --card: oklch(0.185 0.016 264);
+  --card-foreground: var(--bone);
+  --popover: oklch(0.2 0.016 264);
+  --popover-foreground: var(--bone);
+  --primary: var(--ember);
+  --primary-foreground: oklch(0.18 0.03 50);
+  --secondary: oklch(0.235 0.016 264);
+  --secondary-foreground: var(--bone);
+  --muted: oklch(0.225 0.016 264);
+  --muted-foreground: oklch(0.74 0.016 264);
+  --accent: oklch(0.25 0.018 264);
+  --accent-foreground: var(--bone);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.955 0.012 85 / 9%);
+  --input: oklch(0.955 0.012 85 / 12%);
+  --ring: oklch(0.79 0.145 58 / 60%);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    background: var(--ink);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* The ink lives on <html>. <body> stays transparent so the fixed WebGL layer shows through. */
+  body {
+    @apply text-foreground;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: var(--ember);
+    color: var(--primary-foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+@layer utilities {
+  /* Subtle film grain over everything. Pure CSS, no image request. */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Hairline grid used behind covers and sections */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, oklch(0.955 0.012 85 / 5%) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.955 0.012 85 / 5%) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 60%, transparent);
+  }
+  .mask-fade-y {
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  }
+
+  .shine {
+    background: linear-gradient(
+      100deg,
+      var(--bone) 0%,
+      var(--bone) 40%,
+      var(--ember) 50%,
+      var(--bone) 60%,
+      var(--bone) 100%
+    );
+    background-size: 250% 100%;
+    background-clip: text;
+    color: transparent;
+    animation: shine 7s ease-in-out infinite;
+  }
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Entrance and ambient motion */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+@utility animate-rise {
+  animation: rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
 }
