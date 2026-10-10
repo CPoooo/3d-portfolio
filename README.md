@@ -19,6 +19,9 @@ Not a recruiter? If you're building something open source or have something inte
 ## Résumé
 
 **Software Engineer, Knowledge Based Systems, Inc. (KBSI)** · Feb 2025 – Present
+
+*Intern (Feb 2025) → Junior Software Engineer (Apr 2025) → Software Engineer (Aug 2026)*
+
 - Full-stack apps and Python AI backends, mostly on SBIR-funded R&D contracts
 - Frontends in Next.js/React and Vue, with TypeScript and Express services
 - RAG backends in Flask and FastAPI over Neo4j and PostgreSQL

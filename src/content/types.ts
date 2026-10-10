@@ -54,6 +54,8 @@ export type Experience = {
   end: string
   location?: string
   summary: string
+  /** Titles held at this company, oldest first. The current one should match `role`. */
+  progression?: { role: string; date: string }[]
   points?: string[]
   stack?: string[]
 }

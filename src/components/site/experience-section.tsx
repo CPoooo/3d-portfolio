@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 
 import { experience } from "@/content/experience"
 import { site } from "@/content/site"
@@ -35,7 +35,29 @@ export function ExperienceSection() {
                       )}
                     </span>
                   </h3>
-                  <p className="mt-3 max-w-2xl leading-relaxed text-pretty text-muted-foreground">{job.summary}</p>
+                  {job.progression && job.progression.length > 1 && (
+                    <ol aria-label="Promotions" className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-2 font-mono text-xs">
+                      {job.progression.map((step, n) => {
+                        const current = n === job.progression!.length - 1
+                        return (
+                          <li key={step.role} className="flex items-center gap-2">
+                            {n > 0 && <ArrowRight aria-hidden className="size-3 text-faint" />}
+                            <span
+                              className={
+                                current
+                                  ? "rounded-md border border-primary/40 bg-primary/10 px-2 py-1 text-primary"
+                                  : "rounded-md border border-border px-2 py-1 text-muted-foreground"
+                              }
+                            >
+                              {step.role}
+                              <span className={current ? "ml-2 text-primary/70" : "ml-2 text-faint"}>{step.date}</span>
+                            </span>
+                          </li>
+                        )
+                      })}
+                    </ol>
+                  )}
+                  <p className="mt-4 max-w-2xl leading-relaxed text-pretty text-muted-foreground">{job.summary}</p>
                   {job.points && (
                     <ul className="mt-5 max-w-2xl space-y-2.5 text-sm leading-relaxed">
                       {job.points.map((pt) => (

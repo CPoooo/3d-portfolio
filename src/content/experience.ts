@@ -8,6 +8,11 @@ export const experience: Experience[] = [
     href: "https://www.kbsi.com",
     start: "Feb 2025",
     end: "Present",
+    progression: [
+      { role: "Software Engineer Intern", date: "Feb 2025" },
+      { role: "Junior Software Engineer", date: "Apr 2025" },
+      { role: "Software Engineer", date: "Aug 2026" },
+    ],
     summary:
       "Building full-stack web applications and Python AI backends with retrieval-augmented generation, largely on SBIR-funded R&D contracts.",
     points: [
