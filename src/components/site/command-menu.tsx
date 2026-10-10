@@ -52,6 +52,12 @@ export function CommandMenu() {
     fn()
   }
   const external = (href: string) => window.open(href, "_blank", "noopener,noreferrer")
+  const download = (href: string) => {
+    const a = document.createElement("a")
+    a.href = href
+    a.download = ""
+    a.click()
+  }
 
   return (
     <CommandDialog
@@ -102,12 +108,10 @@ export function CommandMenu() {
               </CommandItem>
             )}
             {site.resume && (
-              <CommandItem value="resume cv" onSelect={() => run(() => external(site.resume))}>
+              <CommandItem value="resume cv download" onSelect={() => run(() => download(site.resume))}>
                 <FileText />
-                Résumé
-                <CommandShortcut>
-                  <ArrowUpRight className="size-3.5" />
-                </CommandShortcut>
+                Download résumé
+                <CommandShortcut>PDF</CommandShortcut>
               </CommandItem>
             )}
             {socialLinks.map((l) => (

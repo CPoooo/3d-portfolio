@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Command, Menu } from "lucide-react"
+import { Command, Download, Mail, Menu } from "lucide-react"
 
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
@@ -67,7 +67,7 @@ export function Nav() {
           <span className="hidden text-sm font-medium tracking-tight sm:block">{site.name}</span>
         </Link>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 lg:flex">
           {sections.map((s) => (
             <li key={s.id}>
               <a
@@ -102,19 +102,29 @@ export function Nav() {
               <Command className="size-3" />K
             </Kbd>
           </Button>
+          {site.email && (
+            <a
+              href={`mailto:${site.email}`}
+              aria-label={`Email ${site.email}`}
+              className={buttonVariants({ variant: "ghost", size: "sm", className: "gap-2 text-muted-foreground" })}
+            >
+              <Mail />
+              <span className="hidden font-mono text-xs xl:inline">{site.email}</span>
+            </a>
+          )}
           {site.resume && (
             <a
               href={site.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={buttonVariants({ size: "sm", className: "hidden px-3 sm:inline-flex" })}
+              download
+              className={buttonVariants({ size: "sm", className: "hidden gap-1.5 px-3 sm:inline-flex" })}
             >
+              <Download />
               Résumé
             </a>
           )}
 
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
-            <SheetTrigger render={<Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu" />}>
+            <SheetTrigger render={<Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu" />}>
               <Menu />
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-xs p-6">
@@ -136,14 +146,23 @@ export function Nav() {
                 ))}
               </ul>
               <div className="mt-auto flex flex-col gap-3">
+                {site.email && (
+                  <a
+                    href={`mailto:${site.email}`}
+                    className={buttonVariants({ variant: "outline", className: "h-10 gap-2 font-mono text-xs" })}
+                  >
+                    <Mail />
+                    {site.email}
+                  </a>
+                )}
                 {site.resume && (
                   <a
                     href={site.resume}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonVariants({ className: "h-10" })}
+                    download
+                    className={buttonVariants({ className: "h-10 gap-2" })}
                   >
-                    Résumé
+                    <Download />
+                    Download résumé
                   </a>
                 )}
                 <div className="flex gap-2">

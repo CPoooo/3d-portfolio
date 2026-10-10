@@ -33,8 +33,7 @@ export function ContactSection() {
           {site.resume && (
             <a
               href={site.resume}
-              target="_blank"
-              rel="noopener noreferrer"
+              download
               className={buttonVariants({ className: "h-11 gap-2 rounded-lg px-5" })}
             >
               <FileText />

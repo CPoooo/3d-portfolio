@@ -84,8 +84,7 @@ export function Hero() {
             {site.resume && (
               <a
                 href={site.resume}
-                target="_blank"
-                rel="noopener noreferrer"
+                download
                 className={buttonVariants({ variant: "outline", className: "h-11 rounded-xl px-5 text-sm" })}
               >
                 Résumé

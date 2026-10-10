@@ -32,9 +32,9 @@ export const site = {
   coreStack: ["TypeScript", "React", "Next.js", "Python", "PostgreSQL", "Neo4j"],
 
   /** Public contact email. Leave empty to hide the email buttons. */
-  email: "",
+  email: "cameronpool2019@gmail.com",
   /** Drop your résumé at /public/resume.pdf and set this to "/resume.pdf". Empty hides every résumé button. */
-  resume: "",
+  resume: "/Cameron-Pool-Resume.pdf",
   /** Drop a portrait at /public/portrait.jpg and set this to "/portrait.jpg" */
   portrait: "",
 
