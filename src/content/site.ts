@@ -49,7 +49,7 @@ export const site = {
 
   socials: {
     github: "https://github.com/CPoooo",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/cameron-pool-9b1a6b313/",
     x: "",
   },
 
@@ -57,6 +57,16 @@ export const site = {
     "I build software end to end: data models, APIs, auth, and interfaces people enjoy using.",
     "At KBSI I build AI-backed applications for SBIR contracts, where federally funded research has to become software that actually runs.",
     "Most of my work lives in TypeScript and Next.js. On the side I go deep on Rust, operating systems and interpreters, because understanding the layer below makes the layer above better.",
+  ],
+
+  /** The personal aside under the hero. Empty arrays hide each card. */
+  offTheRecord: [
+    "I got into software convinced I'd be a great game developer, like every young nerd does. These days I specialize in full-stack, with a quiet yearning to go embedded someday. Rust hypeboy.",
+    "Side quest: using AI to work out optimal pitching mechanics and training. Who knows, maybe one day we see 110+ mph off the mound.",
+  ],
+  forDevs: [
+    "Here for the code, not the hiring? Even better. Jobs are boring.",
+    "If you're building something open source or have something interesting to show me, let me know.",
   ],
 
   /** What you are focused on right now. */

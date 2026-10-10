@@ -102,6 +102,18 @@ export function Nav() {
               <Command className="size-3" />K
             </Kbd>
           </Button>
+          {socialLinks.map((l) => (
+            <a
+              key={l.key}
+              href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={l.label}
+              className={buttonVariants({ variant: "ghost", size: "icon-sm", className: "hidden text-muted-foreground sm:inline-flex" })}
+            >
+              <SocialIcon name={l.key} />
+            </a>
+          ))}
           {site.email && (
             <a
               href={`mailto:${site.email}`}
@@ -109,7 +121,7 @@ export function Nav() {
               className={buttonVariants({ variant: "ghost", size: "sm", className: "gap-2 text-muted-foreground" })}
             >
               <Mail />
-              <span className="hidden font-mono text-xs xl:inline">{site.email}</span>
+              <span className="hidden font-mono text-xs 2xl:inline">{site.email}</span>
             </a>
           )}
           {site.resume && (

@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 import { AboutSection } from "@/components/site/about-section"
+import { AsideSection } from "@/components/site/aside-section"
 import { ContactSection } from "@/components/site/contact-section"
 import { ExperienceSection } from "@/components/site/experience-section"
 import { Footer } from "@/components/site/footer"
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <AsideSection />
       <Snapshot />
 
       <section id="work" data-scene="work" className="px-4 py-24 md:px-8 md:py-32">
