@@ -29,8 +29,10 @@ Not a recruiter? If you're building something open source or have something inte
 
 **Projects**
 - [Rabbit Holes](https://github.com/CPoooo/simple-blog-app): social blogging platform with OAuth, feeds, uploads and 14 Playwright E2E suites
+- [Undead Horizon](https://github.com/CPoooo/undead-horizon): infinite 2.5D zombie wave survival in Rust and WebAssembly, [playable in the browser](https://cpoooo.github.io/undead-horizon/)
 - [Typesafe Todo API](https://github.com/CPoooo/typesafe-todo-api): strictly typed REST API with Express, Drizzle and Zod, and 48 integration tests
 - [Axum Todo API](https://github.com/CPoooo/todo-axum-api): REST API in Rust with Axum and Tokio
+- [Tic-Tac-Toe Minimax AI](https://github.com/CPoooo/tic-tac-toe-minimax-ai-game): Python and Pygame game against an unbeatable minimax AI
 
 **Stack:** TypeScript, Python, Rust, SQL · React, Next.js, Vue · Node.js, Express, FastAPI, Flask · PostgreSQL, Neo4j · RAG, MCP, Ollama · Docker, Playwright, Vitest
 
